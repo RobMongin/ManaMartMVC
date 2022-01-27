@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ManaMart.Models.DeckModels.DeckListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Your Decks</h2>
+<h3>Which deck would you like to look at or edit?</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeckId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeckName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeckId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeckName)
+        </td>
+        <td>
+            @Html.ActionLink("Select", "DeckView", new { id = item.DeckId }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.DeckId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.DeckId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DeckId }) 
+        </td>
+    </tr>
+}
+
+</table>

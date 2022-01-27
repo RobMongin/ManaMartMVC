@@ -1,0 +1,42 @@
+﻿@model ManaMart.Models.DeckModels.DeckDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DeckDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeckId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeckId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeckName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeckName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeckType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeckType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id= Model.DeckId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

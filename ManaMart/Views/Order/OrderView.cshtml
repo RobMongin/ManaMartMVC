@@ -1,0 +1,72 @@
+﻿@model ManaMart.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "OrderView";
+}
+
+<div class="row-container">
+    <h1 class="padding">Order View</h1>
+    <br />
+    <br />
+</div>
+
+<div>
+    <br />
+    <div class="column">
+        <h2>
+            @Html.DisplayNameFor(model => model.OrderDetail.CustomerName)
+        </h2>
+        <h4>
+            @Html.DisplayFor(modelItem => modelItem.OrderDetail.CustomerName)
+        </h4>
+        <h2>
+            @Html.DisplayNameFor(model => model.OrderDetail.PhoneNumber)
+        </h2>
+        <h4>
+            @Html.DisplayFor(modelItem => modelItem.OrderDetail.PhoneNumber)
+        </h4>
+        <h2>
+            @Html.DisplayNameFor(model => model.OrderDetail.OrderDate)
+        </h2>
+        <h4>
+            @Html.DisplayFor(modelItem => modelItem.OrderDetail.OrderDate)
+        </h4>
+
+    </div>
+    <br />
+    <h2>Decks</h2>
+    <div class="column">
+        <div class="col-md-8 col-sm-8">
+            @foreach (var deck in Model.Decks)
+            {
+                <div class="row">
+                    <div class="col-md-6 padding fancy-text">
+                        <label>
+                            @Html.DisplayNameFor(modelItem => deck.DeckName)
+                        </label>
+                        <p>
+                            @Html.DisplayFor(modelItem => deck.DeckName)
+                        </p>
+                        <label>
+                            @Html.DisplayNameFor(modelItem => deck.DeckType)
+                        </label>
+                        <p>
+                            @Html.DisplayFor(modelItem => deck.DeckType)
+                        </p>
+                    </div>
+                    <div class="col-md-6 padding fancy-text">
+                        <p>
+                            <a href='@Url.Action("Delete", "OrderDeck", new { id = deck.OrderDeckId })' class="btn btn-default">Remove</a>
+                        </p>
+                    </div>
+                </div>
+            }
+            <br />
+            <a href="@Url.Action("Create", "OrderDeck")" class="btn btn-default">Add Deck</a>
+        </div>
+    </div>
+    <br />
+</div>
+<div class="row">
+
+</div>

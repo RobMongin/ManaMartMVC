@@ -1,0 +1,73 @@
+﻿@model ManaMart.Models.DeckViewModel
+
+@{
+    ViewBag.Title = "Deck View";
+}
+<div class="row-container">
+    <h1 class="padding">Deck View</h1>
+    <br />
+    <br />
+</div>
+
+
+<div>
+    <br />
+    <div class="column">
+        <h2 >
+            @Html.DisplayNameFor(model => model.DeckDetail.DeckName)
+        </h2>
+        <h4>
+            @Html.DisplayFor(modelItem => modelItem.DeckDetail.DeckName)
+        </h4>
+        <h2>
+            @Html.DisplayNameFor(model => model.DeckDetail.DeckType)
+        </h2>
+        <h4>
+            @Html.DisplayFor(modelItem => modelItem.DeckDetail.DeckType)
+        </h4>
+
+    </div>
+    <br />
+    <h2>Cards</h2>
+    <div class="column">
+        <div class="col-md-8 col-sm-8">
+            @foreach(var card in Model.Cards)
+            {
+            <div class="row">
+                <div class="col-md-6 padding fancy-text">
+                    <label>
+                        @Html.DisplayNameFor(modelItem => card.CardName)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(modelItem => card.CardName)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(modelItem => card.CardType)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(modelItem => card.CardType)
+                    </p>
+                </div>
+                <div class="col-md-6 padding fancy-text">
+                    <label>
+                        @Html.DisplayNameFor(modelItem => card.Quantity)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(modelItem => card.Quantity)
+                    </p>
+                    <p>
+                        <a href='@Url.Action("Edit", "DeckCard", new { id = card.DeckCardId })' class="btn btn-default">Edit</a>
+                        <a href='@Url.Action("Delete", "DeckCard", new { id = card.DeckCardId })' class="btn btn-default">Remove</a>
+                    </p>
+                </div>
+            </div>
+            }
+                <br />
+                <a href="@Url.Action("Create", "DeckCard")" class="btn btn-default">Add Card</a>
+        </div>
+    </div>
+    <br />
+</div>
+    <div class="row">
+  
+    </div>

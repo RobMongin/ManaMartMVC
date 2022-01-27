@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-lg-6 col-sm-6">
+            <h2>Welcome to ManaMart!</h2>
+            <p class="lead">
+            
+            Please log in to start creating custom decks with our simple deck manager! If you love the deck place an order and we'll assemble it for you! You can also access your custom decks from your mobile device and show it to us at the game shop!
+            </p>
+            <p class="lead">
+                If you're already logged in, you can find your custom decks or start a new one below!
+            </p>
+            <br>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p><a href="/Deck/Index" class="btn btn-primary btn-lg">Your Decks &raquo;</a></p>
+                <p><a href="/Deck/Create" class="btn btn-primary btn-lg">Create A Deck &raquo;</a></p>
+            }
+        </div>
+        <div class="col-md-4 col-sm-5">
+            <img src="~/Images/ManaMart/mtgMana.png"  class="img-fluid hidden-xs">
+        </div>
+    </div>
+</div>
